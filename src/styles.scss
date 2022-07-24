@@ -1,0 +1,20 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+/* You can add global styles to this file, and also import other style files */
+.input-group-text{
+    min-width: 7rem;
+}
+.input-error-text .form-control{
+    border: 1px solid red;
+}
+.input-error-span{
+    float: left;
+    color: red;
+    font-size: small;
+    display: none;
+}
+.input-error-text .input-error-span{
+    display: block !important;
+}
+.form-floating>label{
+    width: auto !important;
+}
