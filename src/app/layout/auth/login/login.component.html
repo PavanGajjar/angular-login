@@ -1,29 +1,29 @@
 <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
-    <form [formGroup]="loginForm" (submit)="login($event)">
+    <form [formGroup]="loginForm" (submit)="login()">
         <div class="row">
             <div class="col-md-12 text-center">
-                <div [ngClass]="isFieldValid('email') ? 'input-error-text' : ''">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" formControlName="email" placeholder="Email">
-                        <label for="floatingInput">Email</label>
-                        <div *ngIf="loginFormControl.email.hasError('required')" class="invalid-feedback">
-                            <div *ngIf="loginFormControl.email.hasError('required')">Fullname is required</div>
-                        </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" formControlName="email" placeholder="Email"
+                        [ngClass]="isFieldValid('email') ? 'is-invalid' : ''">
+                    <label for="floatingInput">Email</label>
+                    <div *ngIf="loginFormControl.email?.errors != null" class="invalid-feedback">
+                        <div class="is-invalid-field" *ngIf="loginFormControl.email?.errors?.required">Email is required</div>
                     </div>
-                    <!-- <span  [ngClass]="loginFormControl['email'].hasError('required') ? 'input-error-span' : ''">Email is required.</span> -->
                 </div>
             </div>
             <div class="col-md-12 mt-3 text-center">
-                <div [ngClass]="isFieldValid('password') ? 'input-error-text' : ''">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput1" formControlName="password" placeholder="Password">
-                        <label for="floatingInput1">Password</label>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput1" formControlName="password" placeholder="Password"
+                        [ngClass]="isFieldValid('password') ? 'is-invalid' : ''">
+                    <label for="floatingInput1">Password</label>
+                    <div *ngIf="loginFormControl.password?.errors != null" class="invalid-feedback">
+                        <div class="is-invalid-field" *ngIf="loginFormControl.password?.errors?.required">Password is required</div>
                     </div>
-                    <span [ngClass]="loginFormControl['password'].hasError('required') ? 'input-error-span' : ''">Password is required.</span>
                 </div>
             </div>
             <div class="col-md-12 mt-3 text-center">
-                <button class="btn btn-primary">Submit</button>
+                <!-- <p-slider></p-slider> -->
+                <button class="btn btn-primary">Login</button>
             </div>
         </div>
     </form>
